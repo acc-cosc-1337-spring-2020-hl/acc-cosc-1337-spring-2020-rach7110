@@ -13,8 +13,6 @@ double get_gc_content(const string & sequence)
 
 	for (int i = 0; i < sequence.length(); ++i)
 	{
-		cout << sequence[i] << "\n";
-
 		if (sequence[i] == 'G' || sequence[i] == 'C') {
 			gc_count++;
 		}
@@ -25,12 +23,16 @@ double get_gc_content(const string & sequence)
 	return gc_content;
 }
 
-
-
 /*
 Write code for function get_reverse_string that
 accepts a string parameter and returns a string reversed.
 */
+string get_reverse_string(string sequence)
+{
+	reverse(sequence.begin(), sequence.end());
+
+	return sequence;
+}
 
 
 
@@ -44,14 +46,6 @@ b. iterate local string variable and
 c. return string
 
 */
-
-
-
-string get_reverse_string(string sequence)
-{
-	return string();
-}
-
 string get_dna_complement(string sequence)
 {
 	return string();
