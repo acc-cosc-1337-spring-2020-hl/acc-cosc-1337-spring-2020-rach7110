@@ -6,7 +6,24 @@ Calculate GC content:
 Iterate string count Gs and Cs, divide count by string length.
 Return quotient.
 */
+double get_gc_content(const string & sequence)
+{
+	double count = sequence.length();
+	double gc_count = 0;
 
+	for (int i = 0; i < sequence.length(); ++i)
+	{
+		cout << sequence[i] << "\n";
+
+		if (sequence[i] == 'G' || sequence[i] == 'C') {
+			gc_count++;
+		}
+	}
+
+	double gc_content = gc_count / count;
+	
+	return gc_content;
+}
 
 
 
@@ -28,3 +45,14 @@ c. return string
 
 */
 
+
+
+string get_reverse_string(string sequence)
+{
+	return string();
+}
+
+string get_dna_complement(string sequence)
+{
+	return string();
+}
