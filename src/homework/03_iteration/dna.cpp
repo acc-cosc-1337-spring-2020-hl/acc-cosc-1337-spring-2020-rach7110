@@ -34,8 +34,6 @@ string get_reverse_string(string sequence)
 	return sequence;
 }
 
-
-
 /*
 Write prototype for function get_dna_complement that
 accepts a string dna and returns a string.
@@ -48,5 +46,26 @@ c. return string
 */
 string get_dna_complement(string sequence)
 {
-	return string();
+	string reversed_dna = get_reverse_string(sequence);
+
+	for (char &letter : reversed_dna) {
+		switch (letter) {
+			case 'C':
+				letter = 'G';
+				break;
+			case 'G':
+				letter = 'C';
+				break;
+			case 'A':
+				letter = 'T';
+				break;
+			case 'T':
+				letter = 'A';
+				break;
+			default:
+				break;
+		}
+	}
+
+	return reversed_dna;
 }

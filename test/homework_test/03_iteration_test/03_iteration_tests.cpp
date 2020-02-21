@@ -20,7 +20,14 @@ TEST_CASE("Test reverse string function") {
 
 	REQUIRE(get_reverse_string(seq1) == "GATATCGA");
 	REQUIRE(get_reverse_string(seq2) == "GATATCGC");
+}
 
+TEST_CASE("Test dna compliment function") {
+	string seq1 = "AAAACCCGGT";
+	string seq2 = "CCCGGAAAAT";
+
+	REQUIRE(get_dna_complement(seq1) == "ACCGGGTTTT");
+	REQUIRE(get_dna_complement(seq2) == "ATTTTCCGGG");
 }
 
 
