@@ -29,9 +29,13 @@ accepts a string parameter and returns a string reversed.
 */
 string get_reverse_string(string sequence)
 {
-	reverse(sequence.begin(), sequence.end());
+	string reverse = "";
+	for (std::size_t i = sequence.length(); i != 0; --i) 
+	{
+		reverse += sequence[i-1];
+	}
 
-	return sequence;
+	return reverse;
 }
 
 /*
