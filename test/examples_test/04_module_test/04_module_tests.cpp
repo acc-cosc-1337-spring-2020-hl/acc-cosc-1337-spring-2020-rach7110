@@ -5,3 +5,7 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Test BankAcount class) {
+	BankAccount account(100);
+	REQUIRE_THROWS_AS(account.withdraw(101), InvalidAmount)
+}
