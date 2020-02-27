@@ -19,9 +19,14 @@ int main()
 {
 	vector<Rect> rects{Rect(4,5), Rect(10,10), Rect(100,10)};
 	
+	auto total{ 0 };
+
 	for (auto rect : rects) {
 		cout << "Area: " << rect.get_area() << "\n";
+		total += rect.get_area();
 	}
+
+	cout << "\nTotal area: " << total;
 
 	return 0;
 }
