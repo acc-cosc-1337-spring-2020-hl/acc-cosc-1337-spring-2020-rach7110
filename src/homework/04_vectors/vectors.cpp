@@ -1,11 +1,24 @@
+#include "vectors.h";
 /*
 Write a value return function get_max_from_vector with a const reference 
-vector of intsparameter that returns the max value in a vector
+vector of ints parameter that returns the max value in a vector
 
 @param numbers is a const reference to a vector of integers
 @return the max value in the vector
 */
+int get_max_from_vector(const vector<int>& numbers)
+{
+    int max = 0;
 
+    for (int i=0; i< numbers.size(); ++i)
+    {
+        if(numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+
+    return max;
+}
 
 
 /*
