@@ -20,7 +20,6 @@ int get_max_from_vector(const vector<int>& numbers)
     return max;
 }
 
-
 /*
 Write a function named is_prime with an integer parameter that
 given a number returns true if prime or false if not prime
@@ -28,6 +27,22 @@ given a number returns true if prime or false if not prime
 @param number: Any whole number
 @return: bool if prime False if not
 */
+bool is_prime(int number)
+{
+    bool is_prime = true;
+
+    for(int i = number; i <= number/2; ++i)
+    {
+        if( number % i == 0)
+        {
+            is_prime = false;
+            break;
+        }
+    }
+
+    return is_prime;
+}
+
 
 /*
 Write a a function named vector_of_primes with an integer parameter

@@ -16,3 +16,10 @@ TEST_CASE("Function to get max from a vector") {
     REQUIRE(get_max_from_vector(numbers3) == 88888);
 }
 
+TEST_CASE("Test is_prime function") {
+    REQUIRE(is_prime(2) == true);
+    REQUIRE(is_prime(4) == false);
+    REQUIRE(is_prime(43) == true);
+    REQUIRE(is_prime(44) == false);
+}
+
