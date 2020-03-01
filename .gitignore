@@ -31,3 +31,9 @@
 *.out
 *.app
 /.vs
+
+# Local Cmake build
+cmake-build-debug/*
+
+# Clion config
+.idea/*
