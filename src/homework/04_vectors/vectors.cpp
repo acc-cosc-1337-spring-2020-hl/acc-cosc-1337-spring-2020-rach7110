@@ -1,4 +1,4 @@
-#include "vectors.h";
+#include "vectors.h"
 /*
 Write a value return function get_max_from_vector with a const reference 
 vector of ints parameter that returns the max value in a vector
@@ -43,7 +43,6 @@ bool is_prime(int number)
     return is_prime;
 }
 
-
 /*
 Write a a function named vector_of_primes with an integer parameter
 that given a number returns all the prime numbers up to the number
@@ -56,3 +55,17 @@ Example given number 10 returns a vector with elements 2,3,5,7,
 Make sure to use the is_prime function to determine if current 
 number is prime.
 */
+vector<int> vector_of_primes(int value)
+{
+    vector<int> primes;
+
+    for(int i=0; i <= value; ++i)
+    {
+        if(is_prime(i))
+        {
+            primes.push_back(i);
+        }
+    }
+
+    return primes;
+}

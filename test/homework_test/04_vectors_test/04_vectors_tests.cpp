@@ -23,3 +23,11 @@ TEST_CASE("Test is_prime function") {
     REQUIRE(is_prime(44) == false);
 }
 
+TEST_CASE("Test vector_of_primes function") {
+    vector<int> vector1 {2,3,5,7};
+    vector<int> vector2 { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
+    REQUIRE(vector_of_primes(10) == vector1);
+    REQUIRE(vector_of_primes(50) == vector2);
+}
+
+
