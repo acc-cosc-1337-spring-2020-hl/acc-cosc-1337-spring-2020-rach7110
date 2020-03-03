@@ -8,6 +8,12 @@ using std::vector;
 
 int main()
 {	
+	// weird that the compiler knows to use the constructor with one parameter.
+	BankAccount account_a = 60;
+	BankAccount account_b(50);
+	// use 'explicit before the constructor to stop this beahvior.
+	cout << account_a.get_balance();
+	
 	vector<BankAccount> accounts{ BankAccount(100),
 		BankAccount(200), BankAccount(300) };
 
