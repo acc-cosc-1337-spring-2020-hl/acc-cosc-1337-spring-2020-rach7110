@@ -1,4 +1,5 @@
 #include "rectangle.h"
+#include<iostream>
 //Write include statement
 
 
@@ -18,4 +19,11 @@ Rect::Rect(int w, int h)
 void Rect::calculate_area()
 {
 	area = width * height;
+}
+
+std::ostream & operator<< (std::ostream& out, const Rect& r)
+{
+	out << "Area is: " << r.area;
+
+	return out;
 }
