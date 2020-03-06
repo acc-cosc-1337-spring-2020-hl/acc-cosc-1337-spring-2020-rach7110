@@ -1,6 +1,9 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "tic_tac_toe.h"
+#include<iostream>
+
+using std::cout;
 
 TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
@@ -8,57 +11,45 @@ TEST_CASE("Verify Test Configuration", "verification") {
 
 TEST_CASE("Test can’t call mark board before start game") {
     TicTacToe game;
-    REQUIRE_THROWS_AS(game.mark_board(1), Error);
+    REQUIRE_THROWS_AS(game.mark_board(1), GameError);
 }
 
-//Test start game accepts only X or O
 TEST_CASE("Test start game accepts only X or O") {
     TicTacToe game;
-    REQUIRE_THROWS_AS(game.start_game('R'), Error);
+    REQUIRE_THROWS_AS(game.start_game("R"), GameError);
 }
-//2)Use REQUIRE_THROWS_AS to verify that calling the game.start_game with a value other than X or O
-
 
 TEST_CASE("Test set first player to X") {
     TicTacToe game;
-    game.start_game('X');
+    game.start_game("X");
 
-    REQUIRE(game.get_player(), 'X')
+	REQUIRE(game.get_player() == "X");
 }
-//2) call start_game function with argument X
-//3) Use REQUIRE to verify calling get_player() returns X
-
 
 TEST_CASE("Test set first player to O") {
     TicTacToe game;
-    game.start_game('O');
+    game.start_game("O");
 
-    REQUIRE(game.get_player(), 'O');
+    REQUIRE(game.get_player() == "O");
 }
-//2) call start_game function with argument O
-//3) Use REQUIRE to verify calling get_player() returns O
-
-
 
 TEST_CASE("Test start game with X game flow") {
     TicTacToe game;
-    game.start_game('X');
-    REQUIRE(game.get_player(), 'X')
+    game.start_game("X");
+	REQUIRE(game.get_player() == "X");
 
     game.mark_board(4);
-    REQUIRE(game.get_player(), 'O');
+    REQUIRE(game.get_player() == "O");
 }
-//4) Call mark_board with value 4
-//5) Use REQUIRE to verify calling get_player() returns O
-
 
 TEST_CASE("Test start game with O game flow") {
     TicTacToe game;
-    game.start_game('O');
-    REQUIRE(game.get_player(), 'O');
+    game.start_game("O");
+	string player = game.get_player();
 
-    game.mark_board(2);
-    REQUIRE(game.get_player(), 'O');
+
+    REQUIRE(game.get_player() == "O");
+
+    // game.mark_board(2);
+    // REQUIRE(game.get_player() == "O");
 }
-//4) Call mark_board with value 2
-//5) Use REQUIRE to verify calling get_player() returns X

@@ -17,13 +17,12 @@ class TicTacToe
 private:
         void set_next_player();
         string player;
-
 };
 
-class Error
+class GameError
 {
     public:
-        Error(string msg) : message(msg) {};
+		GameError(string msg) : message{ msg } {};
         string get_message();
     private:
         string message;

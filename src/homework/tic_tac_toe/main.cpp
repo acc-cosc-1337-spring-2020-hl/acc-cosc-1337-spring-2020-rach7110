@@ -1,5 +1,8 @@
 #include "tic_tac_toe.h"
 
+using std::cout;
+using std::cin;
+
 int main() 
 {
     TicTacToe game;
@@ -14,6 +17,8 @@ int main()
     catch (Error e) {
         cout << e.get_message();
     }
+
+	//mark_board(int position)
 
 
     return 0;
