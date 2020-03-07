@@ -24,8 +24,12 @@ int main()
 
         cin >> position;
 
-		game.mark_board(position);
-		
+        try {
+            game.mark_board(position);
+        } catch (GameError e) {
+            cout << e.get_message();
+        }
+
 	} while (position != "exit");
 
 
