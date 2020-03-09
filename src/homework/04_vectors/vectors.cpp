@@ -31,7 +31,7 @@ bool is_prime(int number)
 {
     bool is_prime = true;
 
-    for(int i = number; i <= number/2; ++i)
+    for(int i = 2; i <= number/2; ++i)
     {
         if( number % i == 0)
         {
@@ -59,7 +59,7 @@ vector<int> vector_of_primes(int value)
 {
     vector<int> primes;
 
-    for(int i=0; i <= value; ++i)
+    for(int i=2; i <= value; ++i)
     {
         if(is_prime(i))
         {
