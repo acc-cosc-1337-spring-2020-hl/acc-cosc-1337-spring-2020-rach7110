@@ -13,18 +13,20 @@ class BankAccount
 		BankAccount() {};
 		// BankAccount() = default;  //Another way to create default constructor
 		BankAccount(int b) : balance{ b } {};
-		// explicit BankAccount(int b) : balance{ b } {};
+		// explicit BankAccount(int b) : balance{ b } {}
 		int get_balance()const { return balance; }
 		void deposit(int amount);
 		void withdraw(int amount);
 		void open(int amount);
-		double get_rate() { return rate; };
+		double get_rate()const { return rate; };
 		friend void display_balance(const BankAccount& b); 
 		friend std::ostream& operator<<(std::ostream& out, const BankAccount& b);  // operator overloading
 		friend std::istream& operator>>(std::istream& in, BankAccount& b);
-
-	private:
+	
+	protected:
 		int balance{ 0 };
+	
+	private:
 		const int min_balance_to_open{ 25 };
 		static double rate;
 		static double init_rate() { return 0.025; };

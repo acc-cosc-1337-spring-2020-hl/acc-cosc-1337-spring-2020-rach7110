@@ -1,4 +1,4 @@
-#include "bank_account.h"
+#include "checking_account.h"
 #include<iostream>
 #include<vector>
 
@@ -9,6 +9,10 @@ using std::cout;
 
 int main()
 {	
+	CheckingAccount checking;
+	
+	CheckingAccount a(50), b(10);
+	CheckingAccount c;
 
 	// weird that the compiler knows to use the constructor with one parameter.
 	BankAccount account_a = 60;
@@ -16,11 +20,11 @@ int main()
 	// use 'explicit before the constructor to stop this beahvior.
 	std::cout << account_a.get_balance();
 
-	BankAccount a;
-	display_balance(a);
+	BankAccount account_c;
+	display_balance(account_c);
 
-	std::cout << a; // operator overloading
-	std::cin >> a;
+	// std::cout << a; // operator overloading
+	// std::cin >> a;
 
 
 	vector<BankAccount> accounts{ BankAccount(100),

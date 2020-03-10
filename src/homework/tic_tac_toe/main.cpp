@@ -20,7 +20,7 @@ int main()
     }
 
     do {
-        cout << "\nPlayer " << game.get_player() << ", enter a position (1-9) or 'exit' to quit: \n";
+        cout << "\nPlayer " << game.get_player() << ", enter a position (1-9) or 100 to quit: \n";
 
         cin >> position;
 
@@ -30,7 +30,7 @@ int main()
             cout << e.get_message();
         }
 
-	} while (position != "exit");
+	} while (position != 100);
 
 
     return 0;
