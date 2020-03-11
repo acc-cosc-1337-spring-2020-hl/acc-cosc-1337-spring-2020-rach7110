@@ -1,18 +1,28 @@
 #include "checking_account.h"
+#include "savings_account.h"
 #include<iostream>
 #include<vector>
+#include<functional>
 
 using std::vector;
-
 using std::cout;
+using std::reference_wrapper;
 
 
 int main()
 {	
-	CheckingAccount checking;
-	
+	SavingsAccount s(100);
+	CheckingAccount c(100); 
+
+	vector<reference_wrapper<BankAccount>> accounts  {s, c}; // wrapper tells c++ to go to the memory of the child class and work with its methods.
+
+	for (auto account_ref : accounts) {
+		cout << account_ref.get().get_balance() << "\n";
+	}
+
+	// ****************************
+
 	CheckingAccount a(50), b(10);
-	CheckingAccount c;
 
 	// weird that the compiler knows to use the constructor with one parameter.
 	BankAccount account_a = 60;
@@ -27,10 +37,10 @@ int main()
 	// std::cin >> a;
 
 
-	vector<BankAccount> accounts{ BankAccount(100),
+	vector<BankAccount> accts { BankAccount(100),
 		BankAccount(200), BankAccount(300) };
 
-		for (auto act : accounts)
+		for (auto act : accts)
 		{
 			cout << act.get_balance() << "\n";
 		}

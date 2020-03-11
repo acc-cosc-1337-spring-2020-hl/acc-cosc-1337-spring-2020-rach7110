@@ -14,7 +14,7 @@ class BankAccount
 		// BankAccount() = default;  //Another way to create default constructor
 		BankAccount(int b) : balance{ b } {};
 		// explicit BankAccount(int b) : balance{ b } {}
-		int get_balance()const { return balance; }
+		virtual int get_balance()const { return balance; }  // virutal means the derived overwritten function will be run. Polymorphism. So it doesn't default to the base class.
 		void deposit(int amount);
 		void withdraw(int amount);
 		void open(int amount);

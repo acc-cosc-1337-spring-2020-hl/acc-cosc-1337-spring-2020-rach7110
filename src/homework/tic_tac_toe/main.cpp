@@ -26,11 +26,12 @@ int main()
 
         try {
             game.mark_board(position);
+			game.display_board();
         } catch (GameError e) {
             cout << e.get_message();
         }
 
-	} while (position != 100);
+	} while (position != 100 && !game.game_over());
 
 
     return 0;

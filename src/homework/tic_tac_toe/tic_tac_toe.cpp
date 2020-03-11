@@ -38,10 +38,14 @@ string TicTacToe::get_player()
 
 void TicTacToe::display_board() const
 {
+	cout << "\n";
+
 	for (int i=0; i<=9; i += 3)
 	{
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" <<  pegs[i + 2] << "\n";
 	}
+
+	cout << "\n";
 }
 
 bool TicTacToe::game_over()
