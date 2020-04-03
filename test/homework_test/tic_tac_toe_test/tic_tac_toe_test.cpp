@@ -49,9 +49,6 @@ TEST_CASE("Test start game with O game flow") {
 
 
     REQUIRE(game.get_player() == "O");
-
-    // game.mark_board(2);
-    // REQUIRE(game.get_player() == "O");
 }
 
 TEST_CASE("Test game over when board full") {
@@ -83,5 +80,7 @@ TEST_CASE("Test game over when board full") {
 	REQUIRE(game.game_over() == false);
 
 	game.mark_board(9);
+    game.display_board();
+    
 	REQUIRE(game.game_over() == true);
 }

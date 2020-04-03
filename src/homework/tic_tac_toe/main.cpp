@@ -17,6 +17,7 @@ int main()
     }
     catch (GameError e) {
         cout << e.get_message();
+        return 0;
     }
 
     do {
@@ -33,6 +34,6 @@ int main()
 
 	} while (position != 100 && !game.game_over());
 
-
+    
     return 0;
 }

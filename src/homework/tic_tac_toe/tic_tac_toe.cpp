@@ -40,7 +40,7 @@ void TicTacToe::display_board() const
 {
 	cout << "\n";
 
-	for (int i=0; i<=9; i += 3)
+	for (int i=0; i<=8; i += 3)
 	{
 		cout << pegs[i] << "|" << pegs[i + 1] << "|" <<  pegs[i + 2] << "\n";
 	}
@@ -50,7 +50,7 @@ void TicTacToe::display_board() const
 
 bool TicTacToe::game_over()
 {
-	return check_board_full();;
+	return check_board_full();
 }
 
 void TicTacToe::set_next_player()
@@ -64,26 +64,57 @@ void TicTacToe::set_next_player()
         player = "X";
     }
 }
-
+    
 bool TicTacToe::check_board_full()
 {	
 	for (auto peg : pegs) {
-		if (peg == " ")
+		if (peg == "E")
 		{
 			return false;
 		}
 	}
 
-	return false;
+	return true;
 }
 
 void TicTacToe::clear_board()
 {
 	for (auto &peg : pegs)
 	{
-		peg = " ";
+		peg = "E";
 	}
 }
+
+string TicTacToe::get_winner() { 
+    return winner;
+}
+
+// If player is X set winner to O otherwise set winner to X
+void TicTacToe::set_winner() {
+    if (player == "X") {
+        winner = "O";
+    } else {
+        winner = "X";
+    };
+}
+
+// A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
+bool TicTacToe::check_diagonal_win() { 
+    
+}
+
+// A row wins with marked values 1,2,3 or 4,5,6 or 7,8,9 with all Os or Xs
+bool TicTacToe::check_row_win() { 
+
+}
+
+// A column wins with marked values 1,4,7 or 2,5,8, or 3,6,9 with all Os or Xs
+//(Remember a vector index starts at 0)
+bool TicTacToe::check_column_win() { 
+    
+}
+
+
 
 
 

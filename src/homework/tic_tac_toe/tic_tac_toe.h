@@ -1,4 +1,4 @@
-#ifndef TIC_TACTOE_H
+#ifndef TIC_TAC_TOE_H
 #define TIC_TAC_TOE_H
 
 #include<iostream>
@@ -17,13 +17,20 @@ class TicTacToe
         void mark_board(int position);
         string get_player();
 		void display_board()const;
+        string get_winner();
+        vector<string> pegs{9, "E"}; // TODO make private
 
-private:
+    private:
         void set_next_player();
 		bool check_board_full();
 		void clear_board();
+        bool check_column_win();
+        bool check_row_win();
+        bool check_diagonal_win();
+        void set_winner();
         string player;
-		vector<string> pegs{9, " "};
+        string winner = "C";
+		
 };
 
 class GameError
