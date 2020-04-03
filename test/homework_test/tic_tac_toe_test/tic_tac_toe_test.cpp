@@ -51,7 +51,15 @@ TEST_CASE("Test start game with O game flow") {
     REQUIRE(game.get_player() == "O");
 }
 
-TEST_CASE("Test game over when board full") {
+TEST_CASE("Test mark positiion only accepts values 1 to 9.") {
+    TicTacToe game;
+    game.start_game("O");
+    game.mark_board(4);
+    
+    REQUIRE_THROWS_AS(game.mark_board(10), GameError);
+}
+
+TEST_CASE("Test game over when board full. No Winner.") {
 	TicTacToe game;
 	game.start_game("X");
 
@@ -158,6 +166,32 @@ TEST_CASE("Test win by third row", "[X wins third row]")
     board.mark_board(8);//X
     board.mark_board(2);//O
     board.mark_board(9);//X wins
+    
+    REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Test win diagonally from top left")
+{
+    TicTacToe board;
+    board.start_game("X");
+    board.mark_board(1);//X
+    board.mark_board(2);//O
+    board.mark_board(5);//X
+    board.mark_board(3);//O
+    board.mark_board(9);//X wins
+    
+    REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Test win diagonally from top right")
+{
+    TicTacToe board;
+    board.start_game("X");
+    board.mark_board(7);//X
+    board.mark_board(2);//O
+    board.mark_board(5);//X
+    board.mark_board(1);//O
+    board.mark_board(3);//X wins
     
     REQUIRE(board.game_over() == true);
 }

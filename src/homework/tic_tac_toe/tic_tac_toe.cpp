@@ -26,10 +26,6 @@ void TicTacToe::mark_board(int position)
 	{
 		pegs[position - 1] = player;
 		set_next_player();
-        
-        check_row_win();
-        check_column_win();
-        check_diagonal_win();
 	}
 
 }
@@ -53,6 +49,10 @@ void TicTacToe::display_board() const
 
 bool TicTacToe::game_over()
 {
+    check_row_win();
+    check_column_win();
+    check_diagonal_win();
+    
 	return check_board_full() || winner != "C";
 }
 
@@ -71,7 +71,7 @@ void TicTacToe::set_next_player()
 bool TicTacToe::check_board_full()
 {	
 	for (auto peg : pegs) {
-		if (peg == "E")
+		if (peg == " ")
 		{
 			return false;
 		}
@@ -84,7 +84,7 @@ void TicTacToe::clear_board()
 {
 	for (auto &peg : pegs)
 	{
-		peg = "E";
+		peg = " ";
 	}
 }
 
@@ -103,7 +103,13 @@ void TicTacToe::set_winner() {
 
 // A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
 bool TicTacToe::check_diagonal_win() { 
-    
+    if ((pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X")  || (pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O") ) {
+         set_winner();
+     }
+     
+     if ((pegs[6] == "X" && pegs[4] == "X" && pegs[2] == "X")  || (pegs[6] == "O" && pegs[4] == "O" && pegs[2] == "O") ) {
+         set_winner();
+     }
 }
 
 // A row wins with marked values 1,2,3 or 4,5,6 or 7,8,9 with all Os or Xs

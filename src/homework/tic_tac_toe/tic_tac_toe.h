@@ -18,7 +18,6 @@ class TicTacToe
         string get_player();
 		void display_board()const;
         string get_winner();
-        vector<string> pegs{9, "E"}; // TODO make private
 
     private:
         void set_next_player();
@@ -28,8 +27,9 @@ class TicTacToe
         bool check_row_win();
         bool check_diagonal_win();
         void set_winner();
-        string player;
+        string player = "";
         string winner = "C";
+        vector<string> pegs{9, " "};
 		
 };
 

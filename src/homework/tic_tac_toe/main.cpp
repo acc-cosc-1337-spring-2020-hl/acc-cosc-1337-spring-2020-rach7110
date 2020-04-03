@@ -9,16 +9,19 @@ int main()
     string first_player;
     int position;
 
-    cout << "Enter first player (X or O): ";
-    cin >> first_player;
 
-    try {
-        game.start_game(first_player);
-    }
-    catch (GameError e) {
-        cout << e.get_message();
-        return 0;
-    }
+    do {
+        try {
+            cout << "Enter first player (X or O): ";
+            cin >> first_player;
+            
+            game.start_game(first_player);
+        }
+        catch (GameError e) {
+            cout << e.get_message() << "\n";
+        }
+    } while (game.get_player() == "");
+
 
     do {
         cout << "\nPlayer " << game.get_player() << ", enter a position (1-9) or 100 to quit: \n";
