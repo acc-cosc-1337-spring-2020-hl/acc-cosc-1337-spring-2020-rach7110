@@ -26,7 +26,10 @@ void TicTacToe::mark_board(int position)
 	{
 		pegs[position - 1] = player;
 		set_next_player();
-
+        
+        check_row_win();
+        check_column_win();
+        check_diagonal_win();
 	}
 
 }
@@ -50,7 +53,7 @@ void TicTacToe::display_board() const
 
 bool TicTacToe::game_over()
 {
-	return check_board_full();
+	return check_board_full() || winner != "C";
 }
 
 void TicTacToe::set_next_player()
@@ -111,12 +114,18 @@ bool TicTacToe::check_row_win() {
 // A column wins with marked values 1,4,7 or 2,5,8, or 3,6,9 with all Os or Xs
 //(Remember a vector index starts at 0)
 bool TicTacToe::check_column_win() { 
+    if ((pegs[0] == "X" && pegs[3] == "X" && pegs[6] == "X")  || (pegs[0] == "O" && pegs[3] == "O" && pegs[6] == "O") ) {
+        set_winner();
+    }
     
+    if ((pegs[1] == "X" && pegs[4] == "X" && pegs[7] == "X")  || (pegs[1] == "O" && pegs[4] == "O" && pegs[7] == "O") ) {
+        set_winner();
+    }
+    
+    if ((pegs[2] == "X" && pegs[5] == "X" && pegs[8] == "X")  || (pegs[2] == "O" && pegs[5] == "O" && pegs[8] == "O") ) {
+        set_winner();
+    }
 }
-
-
-
-
 
 string GameError::get_message()
 {
