@@ -108,7 +108,17 @@ bool TicTacToe::check_diagonal_win() {
 
 // A row wins with marked values 1,2,3 or 4,5,6 or 7,8,9 with all Os or Xs
 bool TicTacToe::check_row_win() { 
-
+    if ((pegs[0] == "X" && pegs[1] == "X" && pegs[2] == "X")  || (pegs[0] == "O" && pegs[1] == "O" && pegs[2] == "O") ) {
+        set_winner();
+    }
+    
+    if ((pegs[3] == "X" && pegs[4] == "X" && pegs[5] == "X")  || (pegs[3] == "O" && pegs[4] == "O" && pegs[5] == "O") ) {
+        set_winner();
+    }
+    
+    if ((pegs[6] == "X" && pegs[7] == "X" && pegs[8] == "X")  || (pegs[2] == "O" && pegs[6] == "O" && pegs[7] == "O") ) {
+        set_winner();
+    }
 }
 
 // A column wins with marked values 1,4,7 or 2,5,8, or 3,6,9 with all Os or Xs

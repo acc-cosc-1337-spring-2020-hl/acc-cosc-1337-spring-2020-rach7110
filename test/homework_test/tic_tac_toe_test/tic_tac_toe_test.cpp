@@ -94,8 +94,6 @@ TEST_CASE("Test win by first column", "[X wins first column]")
     board.mark_board(5);//O
     board.mark_board(7);//X wins
     
-//    board.display_board();
-    
     REQUIRE(board.game_over() == true);
 }
 
@@ -108,8 +106,6 @@ TEST_CASE("Test win by second column", "[X wins second column]")
     board.mark_board(5);//X
     board.mark_board(7);//O
     board.mark_board(8);//X wins
-    
-//    board.display_board();
     
     REQUIRE(board.game_over() == true);
 }
@@ -124,7 +120,44 @@ TEST_CASE("Test win by third column", "[X wins third column]")
     board.mark_board(2);//O
     board.mark_board(9);//X wins
     
-//    board.display_board();
+    REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Test win by first row", "[X wins first row]")
+{
+    TicTacToe board;
+    board.start_game("X");
+    board.mark_board(1);//X
+    board.mark_board(5);//O
+    board.mark_board(2);//X
+    board.mark_board(6);//O
+    board.mark_board(3);//X wins
+    
+    REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Test win by second row", "[X wins second row]")
+{
+    TicTacToe board;
+    board.start_game("X");
+    board.mark_board(4);//X
+    board.mark_board(3);//O
+    board.mark_board(5);//X
+    board.mark_board(2);//O
+    board.mark_board(6);//X wins
+    
+    REQUIRE(board.game_over() == true);
+}
+
+TEST_CASE("Test win by third row", "[X wins third row]")
+{
+    TicTacToe board;
+    board.start_game("X");
+    board.mark_board(7);//X
+    board.mark_board(1);//O
+    board.mark_board(8);//X
+    board.mark_board(2);//O
+    board.mark_board(9);//X wins
     
     REQUIRE(board.game_over() == true);
 }
