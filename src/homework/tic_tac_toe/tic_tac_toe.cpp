@@ -25,7 +25,10 @@ void TicTacToe::mark_board(int position)
 	else 
 	{
 		pegs[position - 1] = player;
-		set_next_player();
+        
+        if (!game_over()) {
+            set_next_player();
+        }
 	}
 
 }
