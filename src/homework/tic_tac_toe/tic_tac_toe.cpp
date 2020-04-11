@@ -157,6 +157,19 @@ bool TicTacToe::check_column_win() {
 	return false;
 }
 
+
+istream &operator>>(istream &in, TicTacToe &board)
+{
+    int position;
+    
+    cout << "\nPlayer " << board.get_player() << ", enter a position (1-9) or 100 to quit: \n";
+
+    in >> position;
+    board.mark_board(position);
+    
+    return in;
+}
+
 string GameError::get_message()
 {
     return message;

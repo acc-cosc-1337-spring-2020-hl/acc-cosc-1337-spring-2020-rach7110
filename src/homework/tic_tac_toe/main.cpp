@@ -7,12 +7,11 @@ int main()
 {
     TicTacToe game;
     string first_player;
-    int position;
-
 
     do {
         try {
             cout << "Enter first player (X or O): ";
+
             cin >> first_player;
             
             game.start_game(first_player);
@@ -22,21 +21,17 @@ int main()
         }
     } while (game.get_player() == "");
 
-
     do {
-        cout << "\nPlayer " << game.get_player() << ", enter a position (1-9) or 100 to quit: \n";
-
-        cin >> position;
+        cin >> game;
 
         try {
-            game.mark_board(position);
 			game.display_board();
         } catch (GameError e) {
             cout << e.get_message();
         }
 
-	} while (position != 100 && !game.game_over());
-
+//	} while (position != 100 && !game.game_over());
+    } while (!game.game_over());  // TODO: implement way for user to exit game.s
     
     return 0;
 }

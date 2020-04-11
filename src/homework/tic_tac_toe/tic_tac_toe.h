@@ -8,6 +8,8 @@
 using std::string;
 using std::vector;
 using std::cout;
+using std::istream;
+using std::ostream;
 
 class TicTacToe
 {
@@ -18,6 +20,8 @@ class TicTacToe
         string get_player();
 		void display_board()const;
         string get_winner();
+        friend ostream &operator<<(ostream &out, TicTacToe board);
+        friend istream &operator>>(istream &in, TicTacToe &board);
 
     private:
         void set_next_player();
