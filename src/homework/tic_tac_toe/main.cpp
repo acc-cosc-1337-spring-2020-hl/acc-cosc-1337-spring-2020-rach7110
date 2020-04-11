@@ -24,11 +24,7 @@ int main()
     do {
         cin >> game;
 
-        try {
-			game.display_board();
-        } catch (GameError e) {
-            cout << e.get_message();
-        }
+        cout << game;
 
 //	} while (position != 100 && !game.game_over());
     } while (!game.game_over());  // TODO: implement way for user to exit game.s

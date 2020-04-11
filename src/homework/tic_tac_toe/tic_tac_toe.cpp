@@ -35,18 +35,6 @@ string TicTacToe::get_player()
     return player;
 }
 
-void TicTacToe::display_board() const
-{
-	cout << "\n";
-
-	for (int i=0; i<=8; i += 3)
-	{
-		cout << pegs[i] << "|" << pegs[i + 1] << "|" <<  pegs[i + 2] << "\n";
-	}
-
-	cout << "\n";
-}
-
 bool TicTacToe::game_over()
 {
     check_row_win();
@@ -168,6 +156,20 @@ istream &operator>>(istream &in, TicTacToe &board)
     board.mark_board(position);
     
     return in;
+}
+    
+ostream &operator<<(ostream &out, TicTacToe board)
+{
+    cout << "\n";
+
+    for (int i=0; i<=8; i += 3)
+    {
+        cout << board.pegs[i] << "|" << board.pegs[i + 1] << "|" <<  board.pegs[i + 2] << "\n";
+    }
+
+    cout << "\n";
+    
+    return out;
 }
 
 string GameError::get_message()

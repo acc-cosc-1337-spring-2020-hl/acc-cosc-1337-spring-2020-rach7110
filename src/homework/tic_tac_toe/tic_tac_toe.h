@@ -18,10 +18,9 @@ class TicTacToe
         void start_game(string first_player);
         void mark_board(int position);
         string get_player();
-		void display_board()const;
         string get_winner();
-        friend ostream &operator<<(ostream &out, TicTacToe board);
         friend istream &operator>>(istream &in, TicTacToe &board);
+        friend ostream &operator<<(ostream &out, TicTacToe board);
 
     private:
         void set_next_player();
