@@ -85,11 +85,7 @@ string TicTacToe::get_winner() {
 
 // If player is X set winner to O otherwise set winner to X
 void TicTacToe::set_winner() {
-    if (player == "X") {
-        winner = "O";
-    } else {
-        winner = "X";
-    };
+    winner = player;
 }
 
 // A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
