@@ -8,7 +8,7 @@ class TicTacToeManager
 public:
     void save_game(TicTacToe game);
     friend ostream &operator<<(ostream &out, const TicTacToeManager &manager);
-    void get_winner_totals(int &o, int &x, int &t);  // TODO: is this necessary?
+    void get_winner_totals();
     
 private:
     vector<TicTacToe> games;
@@ -17,6 +17,5 @@ private:
     int ties = 0;
     void update_winner_count(string winner);
 };
-
 
 #endif

@@ -8,10 +8,12 @@ void TicTacToeManager::save_game(TicTacToe game)
     update_winner_count(game.get_winner());
 }
 
-// TODO: is this method necessary?
-void TicTacToeManager::get_winner_totals(int &o, int &x, int &t)
+void TicTacToeManager::get_winner_totals()
 {
-    
+    cout << "Totals: \n";
+    cout << "X wins: " << x_wins << "\n";
+    cout << "O wins: " << o_wins << "\n";
+    cout << "Ties: " << ties << "\n";
 }
 
 void TicTacToeManager::update_winner_count(string winner)
@@ -30,7 +32,8 @@ ostream &operator<<(ostream &out, const TicTacToeManager &manager)
 {
     for(auto game : manager.games) {
         cout << game;
-        cout << "Winner: " << game.get_winner();
-        
+        cout << "Winner: " << game.get_winner() << "\n\n";
     }
+        
+    return out;
 }
