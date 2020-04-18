@@ -28,7 +28,7 @@ bool TicTacToe3::check_column_win() {
         return true;
     }
 
-    return false;
+    return check_board_full() || winner != "C";
 }
 
 /*
@@ -60,7 +60,7 @@ bool TicTacToe3::check_row_win() {
         return true;
     }
 
-    return false;
+    return check_board_full() || winner != "C";
 }
 
 
@@ -87,5 +87,5 @@ bool TicTacToe3::check_diagonal_win() {
          return true;
      }
 
-     return false;
+    return check_board_full() || winner != "C";
 }
