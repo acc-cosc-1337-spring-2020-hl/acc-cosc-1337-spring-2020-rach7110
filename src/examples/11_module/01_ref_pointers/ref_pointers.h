@@ -2,3 +2,4 @@
 
 
 //Create return pointer function
+void ref_point(int &int1, int* int2);
