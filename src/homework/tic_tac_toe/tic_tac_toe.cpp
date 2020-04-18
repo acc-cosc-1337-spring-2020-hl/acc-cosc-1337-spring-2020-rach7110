@@ -149,7 +149,17 @@ istream &operator>>(istream &in, TicTacToe &board)
 {
     int position;
     
-    cout << "\nPlayer " << board.get_player() << ", enter a position (1-9) or 100 to quit: \n";
+    cout << "\n Player " << board.get_player();
+    
+    if (board.pegs.size() == 9) {
+        cout << ", enter a position (1-9)";
+    }
+
+        if (board.pegs.size() == 16) {
+            cout << ", enter a position (1-16)";
+        }
+    
+    cout << "or 100 to quit: \n";
 
     in >> position;
     board.mark_board(position);
@@ -160,10 +170,19 @@ istream &operator>>(istream &in, TicTacToe &board)
 ostream &operator<<(ostream &out, TicTacToe board)
 {
     cout << "\n";
-
-    for (int i=0; i<=8; i += 3)
-    {
-        cout << board.pegs[i] << "|" << board.pegs[i + 1] << "|" <<  board.pegs[i + 2] << "\n";
+    
+    // Show board for TicTacToe 3
+    if (board.pegs.size() == 9) {
+        for (int i=0; i<=board.pegs.size() - 1; i += 3) {
+            cout << board.pegs[i] << "|" << board.pegs[i + 1] << "|" <<  board.pegs[i + 2] << "\n";
+        }
+    }
+    
+    // Show board for TicTacToe 4
+    if (board.pegs.size() == 16) {
+        for (int i=0; i<=board.pegs.size() - 1; i += 4) {
+            cout << board.pegs[i] << "|" << board.pegs[i + 1] << "|" <<  board.pegs[i + 2] << "|" <<  board.pegs[i + 3] << "\n";
+        }
     }
 
     cout << "\n";

@@ -14,6 +14,7 @@ using std::ostream;
 class TicTacToe
 {
     public:
+        TicTacToe(int s) : pegs(s*s, " "){};
 		bool game_over();
         void start_game(string first_player);
         void mark_board(int position);
@@ -22,24 +23,27 @@ class TicTacToe
         friend istream &operator>>(istream &in, TicTacToe &board);
         friend ostream &operator<<(ostream &out, TicTacToe board);
 
+    protected:
+        vector<string> pegs;
+        virtual bool check_column_win();
+        virtual bool check_row_win();
+        virtual bool check_diagonal_win();
+    
     private:
         void set_next_player();
 		bool check_board_full();
 		void clear_board();
-        bool check_column_win();
-        bool check_row_win();
-        bool check_diagonal_win();
+
         void set_winner();
         string player = "";
         string winner = "C";
-        vector<string> pegs{9, " "};
 		
 };
 
 class GameError
 {
     public:
-		GameError(string msg) : message{ msg } {};
+		GameError(string msg) : message(msg) {};
         string get_message();
     private:
         string message;
