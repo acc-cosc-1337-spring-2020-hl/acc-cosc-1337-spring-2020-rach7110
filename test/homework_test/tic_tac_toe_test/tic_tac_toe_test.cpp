@@ -1,6 +1,8 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "catch.hpp"
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_3.h"
+#include "tic_tac_toe_3.h"
 #include<iostream>
 
 using std::cout;
@@ -10,31 +12,31 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 
 TEST_CASE("Test can’t call mark board before start game") {
-    TicTacToe game;
+    TicTacToe3 game;
     REQUIRE_THROWS_AS(game.mark_board(1), GameError);
 }
 
 TEST_CASE("Test start game accepts only X or O") {
-    TicTacToe game;
+    TicTacToe3 game;
     REQUIRE_THROWS_AS(game.start_game("R"), GameError);
 }
 
 TEST_CASE("Test set first player to X") {
-    TicTacToe game;
+    TicTacToe3 game;
     game.start_game("X");
 
 	REQUIRE(game.get_player() == "X");
 }
 
 TEST_CASE("Test set first player to O") {
-    TicTacToe game;
+    TicTacToe3 game;
     game.start_game("O");
 
     REQUIRE(game.get_player() == "O");
 }
 
 TEST_CASE("Test start game with X game flow") {
-    TicTacToe game;
+    TicTacToe3 game;
     game.start_game("X");
 	REQUIRE(game.get_player() == "X");
 
@@ -43,7 +45,7 @@ TEST_CASE("Test start game with X game flow") {
 }
 
 TEST_CASE("Test start game with O game flow") {
-    TicTacToe game;
+    TicTacToe3 game;
     game.start_game("O");
 	string player = game.get_player();
 
@@ -52,7 +54,7 @@ TEST_CASE("Test start game with O game flow") {
 }
 
 TEST_CASE("Test mark positiion only accepts values 1 to 9.") {
-    TicTacToe game;
+    TicTacToe3 game;
     game.start_game("O");
     game.mark_board(4);
     
@@ -60,7 +62,7 @@ TEST_CASE("Test mark positiion only accepts values 1 to 9.") {
 }
 
 TEST_CASE("Test game over when board full. No Winner.") {
-	TicTacToe game;
+	TicTacToe3 game;
 	game.start_game("X");
 
 	game.mark_board(1);
@@ -94,7 +96,7 @@ TEST_CASE("Test game over when board full. No Winner.") {
 
 TEST_CASE("Test win by first column", "[X wins first column]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(1);//X
     board.mark_board(2);//O
@@ -108,7 +110,7 @@ TEST_CASE("Test win by first column", "[X wins first column]")
 
 TEST_CASE("Test win by second column", "[X wins second column]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(2);//X
     board.mark_board(3);//O
@@ -122,7 +124,7 @@ TEST_CASE("Test win by second column", "[X wins second column]")
 
 TEST_CASE("Test win by third column", "[X wins third column]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(3);//X
     board.mark_board(1);//O
@@ -136,7 +138,7 @@ TEST_CASE("Test win by third column", "[X wins third column]")
 
 TEST_CASE("Test win by first row", "[X wins first row]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(1);//X
     board.mark_board(5);//O
@@ -150,7 +152,7 @@ TEST_CASE("Test win by first row", "[X wins first row]")
 
 TEST_CASE("Test win by second row", "[X wins second row]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(4);//X
     board.mark_board(3);//O
@@ -164,7 +166,7 @@ TEST_CASE("Test win by second row", "[X wins second row]")
 
 TEST_CASE("Test win by third row", "[X wins third row]")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(7);//X
     board.mark_board(1);//O
@@ -178,7 +180,7 @@ TEST_CASE("Test win by third row", "[X wins third row]")
 
 TEST_CASE("Test win diagonally from top left")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(1);//X
     board.mark_board(2);//O
@@ -192,7 +194,7 @@ TEST_CASE("Test win diagonally from top left")
 
 TEST_CASE("Test win diagonally from top right")
 {
-    TicTacToe board;
+    TicTacToe3 board;
     board.start_game("X");
     board.mark_board(7);//X
     board.mark_board(2);//O
