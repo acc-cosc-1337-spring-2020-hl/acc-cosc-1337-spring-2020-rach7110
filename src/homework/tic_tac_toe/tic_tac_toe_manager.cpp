@@ -1,10 +1,7 @@
 #include "tic_tac_toe_manager.h"
 
-
 void TicTacToeManager::save_game(TicTacToe game)
 {
-    games.push_back(game);
-    
     update_winner_count(game.get_winner());
 }
 
@@ -28,11 +25,12 @@ void TicTacToeManager::update_winner_count(string winner)
         
 }
 
+// Display winner and board.
 ostream &operator<<(ostream &out, const TicTacToeManager &manager)
 {
-    for(auto game : manager.games) {
+    for(auto &game : manager.games) {
         cout << game;
-        cout << "Winner: " << game.get_winner() << "\n\n";
+//        cout << "Winner: " << game.get_winner() << "\n\n";
     }
         
     return out;

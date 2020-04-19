@@ -13,7 +13,7 @@ void TicTacToe::start_game(string first_player)
 
 void TicTacToe::mark_board(int position)
 {
-    if (position < 1 || position > 9)
+    if (position < 1 || position > 9)  // TODO: account for larger boards.
     {
 		throw GameError("Position must be 1 to 9.");
     }
@@ -90,6 +90,7 @@ void TicTacToe::set_winner() {
 
 // A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
 bool TicTacToe::check_diagonal_win() {
+    cout << "Check_win called from base class";
 	 return false;
 }
 
@@ -105,21 +106,22 @@ bool TicTacToe::check_column_win() {
 }
 
 
+// Overloaded oeprator - gets user selected positiion and marks board.
 istream &operator>>(istream &in, TicTacToe &board)
 {
     int position;
     
-    cout << "\n Player " << board.get_player();
+    cout << "\nPlayer " << board.get_player();
     
     if (board.pegs.size() == 9) {
         cout << ", enter a position (1-9)";
     }
 
-        if (board.pegs.size() == 16) {
-            cout << ", enter a position (1-16)";
-        }
+    if (board.pegs.size() == 16) {
+        cout << ", enter a position (1-16)";
+    }
     
-    cout << "or 100 to quit: \n";
+    cout << " or 100 to quit: \n";
 
     in >> position;
     board.mark_board(position);

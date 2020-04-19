@@ -36,7 +36,7 @@ bool TicTacToe4::check_column_win() {
          return true;
      }
 
-    return check_board_full() || winner != "C";
+    return check_board_full() || get_winner() != "C";
 }
 
 
@@ -73,7 +73,7 @@ bool TicTacToe4::check_row_win() {
          return true;
      }
 
-    return check_board_full() || winner != "C";
+    return check_board_full() || get_winner() != "C";
 }
 
 
@@ -90,19 +90,19 @@ Win diagonally
 bool TicTacToe4::check_diagonal_win() {
     cout << "Check_win called from derived class";
     
-    if ((pegs[0] == "X" && pegs[5] == "X" && pegs[10] == "X")  && pegs[15] == "X")  || (pegs[0] == "O" && pegs[5] == "O" && pegs[10] == "O"  && pegs[15] == "O")) ) {
+    if ((pegs[0] == "X" && pegs[5] == "X" && pegs[10] == "X" && pegs[15] == "X")   || ( pegs[0] == "O" && pegs[5] == "O" && pegs[10] == "O" && pegs[15] == "O")) {
          
         set_winner();
         
          return true;
      }
      
-        if ((pegs[3] == "X" && pegs[6] == "X" && pegs[9] == "X")  && pegs[12] == "X")  || (pegs[3] == "O" && pegs[6] == "O" && pegs[9] == "O"  && pegs[15] == "O")) ) {
+        if ((pegs[3] == "X" && pegs[6] == "X" && pegs[9] == "X"  && pegs[12] == "X")  || (pegs[3] == "O" && pegs[6] == "O" && pegs[9] == "O"  && pegs[15] == "O")) {
          
          set_winner();
          
          return true;
      }
 
-     return check_board_full() || winner != "C";
+     return check_board_full() || get_winner() != "C";
 }

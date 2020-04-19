@@ -29,12 +29,11 @@ class TicTacToe
         virtual bool check_row_win();
         virtual bool check_diagonal_win();
         void set_winner();
+        bool check_board_full();
     
     private:
         void set_next_player();
-		bool check_board_full();
 		void clear_board();
-
         string player = "";
         string winner = "C";
 		

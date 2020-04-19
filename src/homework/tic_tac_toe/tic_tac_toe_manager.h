@@ -3,15 +3,18 @@
 
 #include "tic_tac_toe.h"
 
+using std::reference_wrapper;
+
 class TicTacToeManager
 {
 public:
     void save_game(TicTacToe game);
     friend ostream &operator<<(ostream &out, const TicTacToeManager &manager);
     void get_winner_totals();
+    vector<reference_wrapper<TicTacToe> > games;
     
 private:
-    vector<TicTacToe> games;
+
     int o_wins = 0;
     int x_wins = 0;
     int ties = 0;

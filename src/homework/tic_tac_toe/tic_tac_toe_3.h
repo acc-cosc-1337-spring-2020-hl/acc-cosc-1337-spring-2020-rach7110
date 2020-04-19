@@ -3,7 +3,7 @@
 
 #include "tic_tac_toe.h"
 
-class TicTacToe3 : TicTacToe
+class TicTacToe3 : public TicTacToe
 {
     public:
         TicTacToe3() : TicTacToe(3) {};
