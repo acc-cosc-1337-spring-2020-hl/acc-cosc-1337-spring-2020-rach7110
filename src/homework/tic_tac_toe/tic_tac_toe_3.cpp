@@ -73,7 +73,7 @@ Win diagonally
 6 7 8
 */
 bool TicTacToe3::check_diagonal_win() {
-    cout << "Check_win called from derived class";
+//    cout << "Check_win called from derived class";
     
     if ((pegs[0] == "X" && pegs[4] == "X" && pegs[8] == "X")  || (pegs[0] == "O" && pegs[4] == "O" && pegs[8] == "O") ) {
          

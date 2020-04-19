@@ -90,7 +90,7 @@ void TicTacToe::set_winner() {
 
 // A diagonal wins with marked values 1,5,9 or 7,5,3 with all Os or Xs
 bool TicTacToe::check_diagonal_win() {
-    cout << "Check_win called from base class";
+//    cout << "Check_win called from base class";
 	 return false;
 }
 

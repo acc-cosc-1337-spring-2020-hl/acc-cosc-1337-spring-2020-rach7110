@@ -11,7 +11,7 @@ int main()
     TicTacToeManager manager;
     TicTacToe3 game_3;
     TicTacToe4 game_4;
-    vector<reference_wrapper<TicTacToe> >games;
+    vector<reference_wrapper<TicTacToe> >games{game_3, game_4};
     bool playing = true;
     int size;
 
@@ -23,12 +23,10 @@ int main()
         cin >> size;
         
         if (size == 3) {
-            games.push_back(game_3);
             manager.games.push_back(games.front());
         }
         
         if (size == 4) {
-            games.push_back(game_4);
             manager.games.push_back(games.back());
         }
         
