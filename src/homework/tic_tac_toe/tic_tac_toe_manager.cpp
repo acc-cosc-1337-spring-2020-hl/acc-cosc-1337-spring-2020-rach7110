@@ -30,7 +30,7 @@ ostream &operator<<(ostream &out, const TicTacToeManager &manager)
 {
     for(auto &game : manager.games) {
         cout << game;
-        cout << "Winner: " << game.get_winner() << "\n\n";
+        cout << "Winner: " << game.get().get_winner() << "\n\n";
     }
         
     return out;

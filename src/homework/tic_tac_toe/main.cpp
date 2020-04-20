@@ -9,9 +9,8 @@ using std::cin;
 int main() 
 {
     TicTacToeManager manager;
-    TicTacToe3 game_3;
-    TicTacToe4 game_4;
-    vector<reference_wrapper<TicTacToe> >games{game_3, game_4};
+    
+    vector<reference_wrapper<TicTacToe> >games;
     bool playing = true;
     int size;
 
@@ -21,13 +20,16 @@ int main()
         
         cout << "Choose TicTacToe3 or TicTacToe4 (3 or 4): \n";
         cin >> size;
-        
+    
+		TicTacToe3 game_3;
+		TicTacToe4 game_4;
+
         if (size == 3) {
-            manager.games.push_back(games.front());
+            games.push_back(game_3);
         }
         
         if (size == 4) {
-            manager.games.push_back(games.back());
+            games.push_back(game_4);
         }
         
         cout << "Enter first player (X or O): ";
@@ -35,25 +37,25 @@ int main()
         
         // Invalid first player.
         try {
-            manager.games.back().get().start_game(first_player);
+            games.back().get().start_game(first_player);
         }
         catch (GameError e) {
             cout << e.get_message() << "\n";
         }
         
-        TicTacToe game = manager.games.back();
+        std::reference_wrapper<TicTacToe> game = games.back();
 
         // Play game.
         do {
-            cin >> game;
-            cout << game;
+            cin >> game.get();
+            cout << game.get();
 
-        } while (!game.game_over());
+        } while (!game.get().game_over());
         
         // Game is over, so output results and ask if user wants to play again.
-        if (game.game_over()) {
+        if (game.get().game_over()) {
             cout << "Game over! \n";
-            manager.save_game(game);
+            manager.save_game(game.get());
             cout << manager;
             manager.get_winner_totals();
             
