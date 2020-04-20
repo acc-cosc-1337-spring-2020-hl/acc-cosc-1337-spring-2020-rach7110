@@ -6,3 +6,28 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
+TEST_CASE("Test class Copy with stack variables")
+{
+    Vector v1(5);
+    Vector v2 = v1;
+    
+    REQUIRE(v1.Size() == v2.Size());
+    
+    // Proof that a copy was made on the stack.
+//    v1.set_size(10);
+//    REQUIRE(v1.Size() == v2.Size());
+    
+}
+
+TEST_CASE("Test class Copy with heap variables")
+{
+    Vector v1(3);
+    Vector v2 = v1;
+    
+    REQUIRE(v1.Size() == v2.Size());
+    
+    v1[1] = 5;
+    
+    REQUIRE(v1[1] == v2.[1]);
+    
+}
