@@ -19,8 +19,8 @@ TEST_CASE("TEST DEFAULT CONSTRUCTOR FOR BALANCE EQUALS 0") {
 }
 
 TEST_CASE("Test default constructor open account") {
-	BankAccount account;
-	REQUIRE(account.get_balance() == 0);
+	unique_ptr<BankAccount> account = make_unique<SavingsAccount>(90);
+	REQUIRE(account->get_balance() == 0);
 
 	account.open(25);
 	REQUIRE(account.get_balance() == 25);

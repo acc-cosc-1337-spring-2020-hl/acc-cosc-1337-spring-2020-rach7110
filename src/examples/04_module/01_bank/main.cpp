@@ -12,15 +12,32 @@ using std::unique_ptr;
 using std::make_unique;
 
 int main()
-{	
-    SavingsAccount sa(200);
-    cout << "Savings Account balance: " << sa.get_balance();
-    unique_ptr<BankAccount> s = make_unique<SavingsAccount>(90);
+{
+    // Raw pointers (Legacy C++):
+//    BankAccount *b = new SavingsAccount(1000);
+//    cout << (*b).get_balance();
+//    cout << b->get_balance(); // Structure pointer operator. Equivalent to line above, but eaiser to read.
+//
+//    delete b;
+//    b = nullptr;
     
-    cout << s->get_balance();
+    // Unique Pointers:
+    unique_ptr<BankAccount> s = make_unique<SavingsAccount>(90);  // heap variable
+    unique_ptr<BankAccount> c = make_unique<CheckingAccount>(100);
+    
+    std::vector<unique_ptr<BankAccount> > accounts;
+//    accounts.push_back(s);  // Errors because s can only have one owner.
+    accounts.push_back(std::move(s));  // Fixes error in line above.
+    accounts.push_back(std::move(c));
+    
+    for (auto &account : accounts)
+    {
+        cout << account.get()->get_balance() << "\n";
+        cout << account->get_balance() << "\n"; // Works as line above.
+    }
     
 
-// Inheritence & Reference Wrapper
+// Inheritence & Reference Wrapper:
 //    SavingsAccount s(100);
 //    CheckingAccount c(100);
 
