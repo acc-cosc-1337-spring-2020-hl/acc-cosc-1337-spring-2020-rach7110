@@ -2,6 +2,8 @@
 
 void TicTacToeManager::save_game(TicTacToe game)
 {
+    games.push_back(game);
+    
     update_winner_count(game.get_winner());
 }
 
