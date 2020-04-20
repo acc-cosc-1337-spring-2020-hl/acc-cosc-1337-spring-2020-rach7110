@@ -10,9 +10,6 @@ public:
 	SavingsAccount() = default;
 	SavingsAccount(int b) : BankAccount(b) {};
 	int get_balance() const {
-        cout << "Derived class method called from SA class.\n" ;
-        
         return (balance + (1 / 12 * 1.025));
-                
     }
 };

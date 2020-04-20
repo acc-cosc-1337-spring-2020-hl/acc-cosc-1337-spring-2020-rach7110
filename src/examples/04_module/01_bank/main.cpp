@@ -9,13 +9,15 @@ using std::vector;
 using std::cout;
 using std::reference_wrapper;
 using std::unique_ptr;
-//using std::make_unique;
+using std::make_unique;
 
 int main()
 {	
     SavingsAccount sa(200);
     cout << "Savings Account balance: " << sa.get_balance();
-//    unique_ptr<BankAccount> s = make_unique<SavingsAccount>(90);
+    unique_ptr<BankAccount> s = make_unique<SavingsAccount>(90);
+    
+    cout << s->get_balance();
     
 
 // Inheritence & Reference Wrapper
