@@ -15,3 +15,4 @@ Vector::Vector(const Vector &v) : size{v.size}, nums{ new int[v.size] }
         nums[i] = v[i];
     }
 }
+ 

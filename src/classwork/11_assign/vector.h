@@ -2,6 +2,9 @@
 #ifndef MY_VECTOR_H
 #define MY_VECTOR_H
 
+#include<stddef.h>
+#include<cstddef>
+
 class Vector
 {
     // Class copy
