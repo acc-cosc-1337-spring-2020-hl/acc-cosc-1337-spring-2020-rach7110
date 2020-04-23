@@ -25,11 +25,14 @@ class Vector
         size_t Size()const { return size; }
         int &operator[](int i)  { return nums[i]; }       // Overloading [] operator to assign value
         int &operator[](int i) const { return nums[i]; }  // Overloading [] operator to get value
+        ~Vector(); // destructor
 
     private:
         size_t size;
         int *nums;
 };
+
+void use_vect();
 
 #endif
 
