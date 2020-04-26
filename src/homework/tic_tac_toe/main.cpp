@@ -12,7 +12,7 @@ int main()
 {
     unique_ptr<TicTacToeManager> manager;
     
-    vector<unique_ptr<<TicTacToe> >games;
+    vector<unique_ptr<TicTacToe> >games;
     bool playing = true;
     int size;
 
