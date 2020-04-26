@@ -27,7 +27,7 @@ int main()
         unique_ptr<TicTacToe> game_4 = make_unique<TicTacToe4>;
 
         if (size == 3) {
-            games.push_back(move(game_3);
+            games.push_back(move(game_3));
         }
         
         if (size == 4) {
@@ -39,7 +39,7 @@ int main()
         
         // Invalid first player.
         try {
-            games.back().get().start_game(first_player);
+            games.back().get()->start_game(first_player);
         }
         catch (GameError e) {
             cout << e.get_message() << "\n";
@@ -55,7 +55,7 @@ int main()
         } while (!game.get()->game_over());
         
         // Game is over, so output results and ask if user wants to play again.
-        if (game.get().game_over()) {
+        if (game.get()->game_over()) {
             cout << "Game over! \n";
             manager->save_game(std::move(game.get()));
             cout << *manager;
