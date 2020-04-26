@@ -12,86 +12,86 @@ TEST_CASE("Verify Test Configuration", "verification") {
 }
 
 TEST_CASE("Test can’t call mark board before start game") {
-    TicTacToe3 game;
-    REQUIRE_THROWS_AS(game.mark_board(1), GameError);
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    REQUIRE_THROWS_AS(game->mark_board(1), GameError);
 }
 
 TEST_CASE("Test start game accepts only X or O") {
-    TicTacToe3 game;
-    REQUIRE_THROWS_AS(game.start_game("R"), GameError);
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    REQUIRE_THROWS_AS(game->start_game("R"), GameError);
 }
 
 TEST_CASE("Test set first player to X") {
-    TicTacToe3 game;
-    game.start_game("X");
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    game->start_game("X");
 
-	REQUIRE(game.get_player() == "X");
+	REQUIRE(game->get_player() == "X");
 }
 
 TEST_CASE("Test set first player to O") {
-    TicTacToe3 game;
-    game.start_game("O");
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    game->start_game("O");
 
-    REQUIRE(game.get_player() == "O");
+    REQUIRE(game->get_player() == "O");
 }
 
 TEST_CASE("Test start game with X game flow") {
-    TicTacToe3 game;
-    game.start_game("X");
-	REQUIRE(game.get_player() == "X");
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    game->start_game("X");
+	REQUIRE(game->get_player() == "X");
 
-    game.mark_board(4);
-    REQUIRE(game.get_player() == "O");
+    game->mark_board(4);
+    REQUIRE(game->get_player() == "O");
 }
 
 TEST_CASE("Test start game with O game flow") {
-    TicTacToe3 game;
-    game.start_game("O");
-	string player = game.get_player();
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    game->start_game("O");
+	string player = game->get_player();
 
 
-    REQUIRE(game.get_player() == "O");
+    REQUIRE(game->get_player() == "O");
 }
 
 TEST_CASE("Test mark positiion only accepts values 1 to 9.") {
-    TicTacToe3 game;
-    game.start_game("O");
-    game.mark_board(4);
+    unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+    game->start_game("O");
+    game->mark_board(4);
     
-    REQUIRE_THROWS_AS(game.mark_board(10), GameError);
+    REQUIRE_THROWS_AS(game->mark_board(10), GameError);
 }
 
 TEST_CASE("Test game over when board full. No Winner.") {
-	TicTacToe3 game;
-	game.start_game("X");
+	unique_ptr<TicTacToe> game = make_unique<TicTacToe3>;
+	game->start_game("X");
 
-	game.mark_board(1);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(1);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(2);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(2);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(3);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(3);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(5);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(5);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(4);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(4);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(6);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(6);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(8);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(8);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(7);
-	REQUIRE(game.game_over() == false);
+	game->mark_board(7);
+	REQUIRE(game->game_over() == false);
 
-	game.mark_board(9);
+	game->mark_board(9);
     
-	REQUIRE(game.game_over() == true);
+	REQUIRE(game->game_over() == true);
 }
 
 TEST_CASE("Test win by first column", "[X wins first column]")
