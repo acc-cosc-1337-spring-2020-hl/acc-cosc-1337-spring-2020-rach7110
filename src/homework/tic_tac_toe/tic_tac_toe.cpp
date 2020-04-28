@@ -129,7 +129,7 @@ istream &operator>>(istream &in, TicTacToe &board)
     return in;
 }
     
-ostream &operator<<(ostream &out, TicTacToe board)
+ostream &operator<<(ostream &out, const TicTacToe& board)
 {
     cout << "\n";
     

@@ -21,7 +21,7 @@ class TicTacToe
         string get_player();
         string get_winner();
         friend istream &operator>>(istream &in, TicTacToe &board);
-        friend ostream &operator<<(ostream &out, TicTacToe board);
+        friend ostream &operator<<(ostream &out, const TicTacToe& board);
 
     protected:
         vector<string> pegs;
