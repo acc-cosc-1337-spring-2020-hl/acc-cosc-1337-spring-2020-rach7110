@@ -10,9 +10,8 @@ using std::make_unique;
 
 int main() 
 {
-    unique_ptr<TicTacToeManager> manager;
+    unique_ptr<TicTacToeManager> manager = std::make_unique<TicTacToeManager>();
     
-    vector<unique_ptr<TicTacToe> >games;
     bool playing = true;
     int size;
 
@@ -23,15 +22,14 @@ int main()
         cout << "Choose TicTacToe3 or TicTacToe4 (3 or 4): \n";
         cin >> size;
     
-        unique_ptr<TicTacToe> game_3 = make_unique<TicTacToe3>;
-        unique_ptr<TicTacToe> game_4 = make_unique<TicTacToe4>;
+		unique_ptr<TicTacToe> game;
 
         if (size == 3) {
-            games.push_back(move(game_3));
+			game = make_unique<TicTacToe3>();
         }
         
         if (size == 4) {
-            games.push_back(move(game_4));
+			game = make_unique<TicTacToe4>();
         }
         
         cout << "Enter first player (X or O): ";
@@ -39,25 +37,23 @@ int main()
         
         // Invalid first player.
         try {
-            games.back().get()->start_game(first_player);
+            game->start_game(first_player);
         }
         catch (GameError e) {
             cout << e.get_message() << "\n";
         }
         
-        unique_ptr<TicTacToe> game = games.back();
-
         // Play game.
         do {
-            cin >> game.get();
-            cout << game.get();
+            cin >> *game;
+            cout << *game;
 
-        } while (!game.get()->game_over());
+        } while (!game->game_over());
         
         // Game is over, so output results and ask if user wants to play again.
         if (game.get()->game_over()) {
             cout << "Game over! \n";
-            manager->save_game(std::move(game.get()));
+            manager->save_game(game);
             cout << *manager;
             manager->get_winner_totals();
             
