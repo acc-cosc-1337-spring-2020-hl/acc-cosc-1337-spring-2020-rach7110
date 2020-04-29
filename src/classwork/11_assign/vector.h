@@ -22,6 +22,7 @@ class Vector
     public:
         Vector(size_t sz);
         Vector(const Vector &v);  // copy constructor
+        Vector(Vector&& v); // move constructor
         size_t Size()const { return size; }
         int &operator[](int i)  { return nums[i]; }       // Overloading [] operator to assign value
         int &operator[](int i) const { return nums[i]; }  // Overloading [] operator to get value
@@ -32,7 +33,8 @@ class Vector
         int *nums;
 };
 
-void use_vect();
+
+//void use_vect();
 
 #endif
 
