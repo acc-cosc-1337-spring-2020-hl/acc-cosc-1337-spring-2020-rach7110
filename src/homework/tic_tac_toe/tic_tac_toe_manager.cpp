@@ -1,5 +1,17 @@
 #include "tic_tac_toe_manager.h"
 
+TicTacToeManager::TicTacToeManager(TicTacToeData &d)
+{
+    games = d.get_games();
+    
+    // Get winner counts.
+    for (auto game : games)
+    {
+        string winner = game.get_winner();
+        update_winner_count(winner);
+    }
+}
+
 void TicTacToeManager::save_game(unique_ptr<TicTacToe> &game)
 {
 	update_winner_count(game->get_winner());
@@ -25,6 +37,11 @@ void TicTacToeManager::update_winner_count(string winner)
         ++ties;
     }
         
+}
+
+TicTacToeManager::~TicTacToeManager()
+{
+    data.save_game(games);
 }
 
 // Display winner and board.

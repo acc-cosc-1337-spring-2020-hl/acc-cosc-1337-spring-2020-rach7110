@@ -10,11 +10,11 @@ class TemperatureData
 {
 public:
     void save_temps(std::vector<Temperature>& ts);
-    std:vector<Temperature> get_temps()const;
+    std::vector<Temperature> get_temps()const;
     
 private:
     std::vector<Temperature> temps;
-    const std::string file_name{"temperature.dat"};
+//    const std::string file_name{"temperature.dat"};
 };
 
 #endif
