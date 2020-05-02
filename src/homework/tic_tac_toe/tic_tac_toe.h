@@ -15,11 +15,13 @@ class TicTacToe
 {
     public:
         TicTacToe(int s = 3) : pegs(s*s, " "){};
+        TicTacToe(vector<string> p, string win) : pegs{p}, winner{win}{}
 		bool game_over();
         void start_game(string first_player);
         void mark_board(int position);
         string get_player();
         string get_winner();
+        vector<string> get_pegs()const { return pegs; }
         friend istream &operator>>(istream &in, TicTacToe &board);
         friend ostream &operator<<(ostream &out, const TicTacToe& board);
 

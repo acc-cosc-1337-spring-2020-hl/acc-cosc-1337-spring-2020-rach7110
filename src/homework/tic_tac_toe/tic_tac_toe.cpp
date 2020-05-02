@@ -105,6 +105,11 @@ bool TicTacToe::check_column_win() {
 	return false;
 }
 
+TicTacToe::TicTacToe(vector<std::string> p, std::string win) {
+    <#code#>;
+}
+
+
 
 // Overloaded oeprator - gets user selected positiion and marks board.
 istream &operator>>(istream &in, TicTacToe &board)
@@ -156,3 +161,4 @@ string GameError::get_message()
 {
     return message;
 }
+    
