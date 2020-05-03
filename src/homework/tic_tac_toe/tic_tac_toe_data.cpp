@@ -1,6 +1,6 @@
 #include "tic_tac_toe_data.h"
 
-void save_game(const vector<unique_ptr<TicTacToe>> &games)
+void save_game(const vector<unique_ptr<TicTacToe> > &games)
 {
     std::ofstream file_out(file_name, std::ios_base::trunc);
     
@@ -10,7 +10,7 @@ void save_game(const vector<unique_ptr<TicTacToe>> &games)
         vector<string> pegs = game.get_pegs();
         
         // Write pegs to file.
-        for (int i = 0; i < pegs.size() ++i) {
+        for (int i = 0; i < pegs.size(); ++i) {
             file_out << pegs[i];
             file_out << " ";
         }
