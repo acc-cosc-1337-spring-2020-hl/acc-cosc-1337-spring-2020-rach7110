@@ -5,9 +5,9 @@ TicTacToeManager::TicTacToeManager(TicTacToeData &d)
     games = d.get_games();
     
     // Get winner counts.
-    for (auto game : games)
+    for (auto& game : games)
     {
-        string winner = game.get_winner();
+        string winner = game->get_winner();
         update_winner_count(winner);
     }
 }

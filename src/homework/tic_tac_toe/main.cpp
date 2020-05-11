@@ -12,7 +12,7 @@ int main()
 {
     TicTacToeData data;
     
-    unique_ptr<TicTacToeManager> manager = std::make_unique<TicTacToeManager>(&data);
+    unique_ptr<TicTacToeManager> manager = std::make_unique<TicTacToeManager>(data);
     
     bool playing = true;
     int size;
